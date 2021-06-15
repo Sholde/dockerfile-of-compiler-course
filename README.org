@@ -1,5 +1,5 @@
-#+TITLE : Dockerfile of the compiler course
-#+AUTHOR : Sholde
+#+TITLE: Dockerfile of the compiler course
+#+AUTHOR: Sholde
 #+DATE: June 15, 2021
 
 Provides a *Dockerfile* for the *Compiler Course* by *Pablo de Oliveira
@@ -25,12 +25,18 @@ Castro* available here: https://sifflez.org/lectures/compil/
     $ docker run -ti -v $PWD:/home -w /home compiler-course
   #+END_SRC
 
-  The Dockerfile starts in ~/home~ so if you want to put your work
-  as easily as possible, you should put it in ~/home~.
+  Put the directory you want to mount in the container instead of
+  ~$PWD~. Keep in mind that it must be a *absolute path*.
+
+  *NOTE:* don't set the ~--rm~ option if you want to keep the changes
+  you make in you make in the container.
+
+** Detailled Explanation
+
+   The Dockerfile starts in ~/home~ so if you want to put your work
+   as easily as possible, you should put it in ~/home~.
   
-  REMINDER: you need to mount a DIRECTORY, not a standard file. Also,
-  you need an absolute path.
+   *REMINDER:* you need to mount a DIRECTORY, not a standard file. Also,
+   you need an .
 
-  Here we put the current DIRECTORY where you are.
-
-
+   Here we put the current DIRECTORY to the container ~/home~.
