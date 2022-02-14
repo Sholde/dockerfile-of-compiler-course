@@ -25,6 +25,19 @@ Castro* available here: https://sifflez.org/lectures/compil/
   
   The first time you lauch the image it will download the base image and install the environnement. This may take some time.
 
+  Then check your image id or name with :
+
+  #+BEGIN_SRC shell
+    $ docker ps
+  #+END_SRC
+  
+  And attach to the image with the following, replacing ~ID~ with the image id or name :
+
+  #+BEGIN_SRC shell
+    $ docker exec -it ID /bin/bash
+  #+END_SRC
+
+
 ** Detailled Explanation
 
    The docker-compose file creates a bind mount of your project directory in its home.
