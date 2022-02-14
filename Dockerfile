@@ -18,9 +18,5 @@ RUN apt-get -y update && \
     ${EDITORS} && \
     apt-get -y clean
 
-# Setup workdir
-VOLUME /home
-WORKDIR /home
-
 # Running the shell at startup
 CMD ["/bin/bash"]

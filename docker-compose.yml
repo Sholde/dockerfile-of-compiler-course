@@ -1,0 +1,14 @@
+---
+version: "3.9"
+services:
+  compiler-course:
+    image: compiler-course
+    tty: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    working_dir: /home/USER/DIR
+    volumes:
+      - type: bind
+        source: $PWD/DIR
+        target: /home/USER/DIR

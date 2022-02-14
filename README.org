@@ -11,32 +11,23 @@ Castro* available here: https://sifflez.org/lectures/compil/
 
   Obviously, you must have docker to build a Dockerfile.
 
-* Installation
-
-  Build it as a normal Dockerfile.
-  
-  #+BEGIN_SRC shell
-    $ docker build . -t compile-course
-  #+END_SRC
-
 * Usage
 
+  Copy ~Dockerfile~ and ~docker-compose.yml~ next to the root of the compilation project.
+  
+  In ~docker-compose.yml~ change ~USER~ to your username (the one on your machine) and DIR to the name of the compilation project directory.
+
+  Then start the image with :
+  
   #+BEGIN_SRC shell
-    $ docker run -ti -v $PWD:/home -w /home compiler-course
+    $ docker-compose up -d
   #+END_SRC
-
-  Put the directory you want to mount in the container instead of
-  ~$PWD~. Keep in mind that it must be a *absolute path*.
-
-  *NOTE:* don't set the ~--rm~ option if you want to keep the changes
-  you make in you make in the container.
+  
+  The first time you lauch the image it will download the base image and install the environnement. This may take some time.
 
 ** Detailled Explanation
 
-   The Dockerfile starts in ~/home~ so if you want to put your work
-   as easily as possible, you should put it in ~/home~.
-  
-   *REMINDER:* you need to mount a DIRECTORY, not a standard file. Also,
-   you need an .
+   The docker-compose file creates a bind mount of your project directory in its home.
 
-   Here we put the current DIRECTORY to the container ~/home~.
+   You can work on your project on your machine and the image we see the changes
+   you make so you can immediatly test your changes in your docker image without restarting it.
