@@ -17,6 +17,7 @@ RUN apt-get -y update && \
     libz-dev autoconf \
     ${EDITORS} && \
     apt-get -y clean
+ENV PATH="/usr/lib/llvm-7/bin:$PATH"
 
 # Running the shell at startup
 CMD ["/bin/bash"]
